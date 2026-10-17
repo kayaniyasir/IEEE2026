@@ -1,0 +1,33 @@
+# King's Order — educational paraphrase of a real 2024 IEEEXtreme problem
+
+[Check original source](https://github.com/Pavith19/IEEEXtreme18.0-solutions/tree/main/King%27s%20Order). This is not a verbatim reproduction of a copyrighted contest statement.
+
+## Problem
+Arrange N tasks satisfying prerequisite pairs (a,b), where task a must occur before task b. Of the currently available tasks, choose the one with the smallest given group number, breaking ties by task number. Output -1 if the tasks contain a cycle.
+
+## Input
+N M, then N group identifiers, then M pairs a b.
+
+## Output
+A space-separated ordering of tasks (1-indexed), or -1 for a cycle.
+
+## Constraints and fidelity
+The exact archived contest tie-breaking and maximum input sizes remain unverified; this is a reconstruction based on a public contestant submission.
+
+## Sample input
+```text
+4 3
+2 1 2 1
+1 3
+2 3
+4 3
+```
+
+## Sample output
+```text
+2 4 1 3
+```
+
+*Sample has been independently checked, and is not labeled as an original official sample.*
+
+This problem name is evidenced in a 2024 contestant archive, but its exact statement and tie rules have not been checked against an official PDF; do not claim official judge acceptance.
