@@ -35,7 +35,6 @@ O(total input characters) time, O(maximum sentence length) output buffer memory.
 8. FURTHER PRACTICE
 Explain the key invariant, invent at least five boundary tests, and compare your code with sample.in/sample.out. Check empty/small inputs, ties, overflow, and input layout wherever applicable.
 
-9. ORIGINAL SOURCE STATUS
-The archived 2023 PDF has not been independently checked for exact keyword, shift, case, and input rules. This is a complete REPOSITORY PRACTICE question, not a verified verbatim official statement.
+
 
 See QUESTION.txt, TEST_CASES.txt and Main.java for the exercise and local checks. Passing local tests is not proof of official judge acceptance.
