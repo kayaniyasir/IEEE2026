@@ -38,9 +38,3 @@ COMMON MISTAKES
 3. Using upper_bound as the last matched index instead of first greater index
 4. Reading past A[N] if lower bound returns N
 
-SELF-CHECK
-Explain which algorithm invariant is maintained, why the result is optimal and what would change if the crucial strict comparison became non-strict. Construct five small independent tests. Verify output format exactly.
-
-FIDELITY NOTE
-Problem format, sample and constraints are present in a public 2025 IEEEXtreme 19.0 archive; official judge acceptance remains unverified.
-Local compilation and tests do not prove official contest judge acceptance.
