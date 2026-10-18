@@ -25,7 +25,7 @@ for year,slugs in folders.items():
         question=docs["QUESTION"].lower()
         prompt=docs["AI_PROMPT"].lower()
         assert "sample" in question and "output" in question and "input" in question, slug
-        assert "complete question" in prompt and "end of question" in prompt, slug
+        assert "complete question" in prompt and ("end of question" in prompt or "end complete question" in prompt), slug
         assert "how to solve" in prompt and "public class main" in prompt, slug
         assert "sample.in" in docs["TEST_CASES"] and "sample.out" in docs["TEST_CASES"],slug
         assert (directory / "Main.java").exists(), slug
