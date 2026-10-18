@@ -1,0 +1,17 @@
+CAESAR REDUX — HINTS AND THINKING QUESTIONS
+
+HINT 1 (CONCEPT)
+Encoding a letter as a number 0..25 turns rotation into modular arithmetic, allowing wraparound in O(1) work per character.
+
+HINT 2 (APPROACH)
+Read T; for each case read the shift as a whole line and the sentence as a whole line. The repository practice rule uses a backward shift only when the exact space-separated token 'the' is present; otherwise use a forward shift.
+
+HINT 3 (IMPLEMENTATION)
+Compute delta with Math.floorMod(direction*shift,26), so large and negative shifts still wrap around correctly. For each lowercase a-z, convert to index 0-25, add delta modulo 26, and convert back; preserve all other characters. Print one transformed line per case; do not add prompts or debugging output.
+
+CONCEPT CHECKS
+1. What information must be stored after reading input?
+2. Why is the algorithm correct, not only fast?
+3. Which boundary or tie condition is most likely to break a solution?
+
+Try to answer before reading EXPLANATION.txt.

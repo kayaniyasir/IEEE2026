@@ -1,0 +1,70 @@
+READY-TO-COPY AI PROMPT — RESTAURANT CIPHER
+
+You are an expert competitive programming tutor and Java 17 solution reviewer. Solve the ENTIRE independently paraphrased REPOSITORY PRACTICE problem below, not an assumed official version. This prompt is already self-contained: do NOT ask me to paste the problem again. Respect contest rules; do not assert official judge acceptance.
+
+================ COMPLETE QUESTION ================
+Restaurant Cipher — IEEEXtreme 17.0 (2023)
+
+Original paraphrase based on an authentic problem archive. View archived contest PDF (https://github.com/kmishmael/IEEEXtreme-17.0/blob/main/Restaurant%20Cipher/restaurant%20cipher.pdf).
+
+Task
+For each text line, count A through G (case-insensitive) and report the most frequent letter; break ties alphabetically.
+
+Input
+First line T, then T text lines.
+
+Output
+One uppercase letter per line.
+
+Sample input (independently created test)
+
+3
+AABb!
+cCdD
+gggA
+
+
+Expected output
+
+A
+C
+G
+
+
+Source confidence
+The community archive contains an original contest PDF, but its complete constraints and tie rules have not been independently verified.
+
+Please consult the original archived PDF for precise contest constraints before making judge-acceptance claims.
+================ END COMPLETE QUESTION ================
+
+HOW TO SOLVE IT (RECOMMENDED APPROACH)
+Step 1: Read the number of text lines and keep each entire line intact, including spaces.
+Step 2: Create an integer array of length seven representing counts for A through G.
+Step 3: Convert each character to uppercase; if it lies between A and G, increment its matching counter and ignore all other characters.
+Step 4: Scan counters from A to G and replace the best index only when the next count is STRICTLY higher.
+Step 5: Print the uppercase winning letter for each case, one per line.
+
+REASONING: Counting only seven letters uses constant memory. Strict comparison while scanning alphabetically gives the correct teaching tie-break without extra sorting.
+WORKED EXAMPLE: For 'AABb!' the A and B counts are both 2, so choose A. For 'cCdD', C and D both occur twice, so choose C. For 'gggA', G wins 3 to 1.
+TARGET COMPLEXITY: O(total input characters) time and O(1) auxiliary counting memory.
+
+RESPONSE INSTRUCTIONS:
+1. Explain the input, output, objective and every assumption in plain English, clearly noting any unverified original rules.
+2. Teach the underlying concepts (Character frequency and arrays) with small Java examples, but do not change the required algorithm.
+3. Explain why the approach is correct, write concise pseudocode, then dry-run the included sample and verify its expected output.
+4. Write a complete compilable Java 17 program with public class Main, one file Main.java, and standard libraries only. Follow input and output exactly. Handle potentially large input efficiently where relevant; do not print debug text or prompts.
+5. Explain important variables, loops, conditions, data structures, numeric types and corner cases line by line where needed.
+6. Analyze worst-case time and space complexity. Address every known limit without inventing unknown official limits.
+7. Generate at least five additional independently calculated valid test cases with expected outputs; include cases targeting these risks:
+   1. Counting letters H-Z too
+   2. Ignoring lowercase input
+   3. Using >= and accidentally selecting the later tied letter
+   4. Reading a line token by token
+   5. Assuming the no-valid-letter behavior is official
+8. Review for off-by-one, overflow, input parsing, boundaries, correctness and formatting; state honestly whether you compiled or ran code.
+9. End with a single clean final Main.java code block, ready to copy and run.
+
+SOURCE CAUTION: 2023 original contest PDF exists but its tie rule, bounds, and empty/no-A-G behavior remain unverified. This is the repository practice interpretation.
+If the archived original PDF is accessible and differs, report the differences instead of silently modifying the educational question.
+
+OPTIONAL: If I provide my Java code later, review it against the COMPLETE QUESTION above and give a minimal reproducible counterexample for each actual bug.

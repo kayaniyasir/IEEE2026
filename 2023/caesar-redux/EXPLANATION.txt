@@ -1,0 +1,41 @@
+CAESAR REDUX — DETAILED JAVA SOLUTION EXPLANATION
+
+1. WHAT THE PROBLEM MEANS
+Apply a Caesar shift to each lowercase sentence. A published team's educational interpretation uses a backward shift when the exact token 'the' appears, forward otherwise.
+
+2. REASONING — WHY THIS APPROACH
+Encoding a letter as a number 0..25 turns rotation into modular arithmetic, allowing wraparound in O(1) work per character.
+
+3. ALGORITHM STEP BY STEP
+1) Read T; for each case read the shift as a whole line and the sentence as a whole line.
+
+2) The repository practice rule uses a backward shift only when the exact space-separated token 'the' is present; otherwise use a forward shift.
+
+3) Compute delta with Math.floorMod(direction*shift,26), so large and negative shifts still wrap around correctly.
+
+4) For each lowercase a-z, convert to index 0-25, add delta modulo 26, and convert back; preserve all other characters.
+
+5) Print one transformed line per case; do not add prompts or debugging output.
+
+4. WORKED EXAMPLE
+For shift 3 and 'the cat', the exact token 'the' occurs, so shift backward: t->q, h->e, e->b; c->z, a->x, t->q. Output 'qeb zxq'. For 'abc xyz', shift forward to 'def abc'.
+
+5. JAVA IMPLEMENTATION GUIDANCE
+Write one file Main.java with public class Main and main(String[] args). Use suitable standard Java 17 input handling, loops, methods, arrays and numeric types. Output only the requested answers; never add input prompts. Review Main.java only after attempting your own implementation.
+
+6. COMPLEXITY
+O(total input characters) time, O(maximum sentence length) output buffer memory.
+
+7. COMMON ERRORS
+1) Reading only a word instead of a whole sentence
+2) Detecting the three characters 'the' inside another word, rather than the practice version's space-separated token
+3) Shifting punctuation or upper case unexpectedly
+4) Using Java % on a negative number without normalization
+
+8. FURTHER PRACTICE
+Explain the key invariant, invent at least five boundary tests, and compare your code with sample.in/sample.out. Check empty/small inputs, ties, overflow, and input layout wherever applicable.
+
+9. ORIGINAL SOURCE STATUS
+The archived 2023 PDF has not been independently checked for exact keyword, shift, case, and input rules. This is a complete REPOSITORY PRACTICE question, not a verified verbatim official statement.
+
+See QUESTION.txt, TEST_CASES.txt and Main.java for the exercise and local checks. Passing local tests is not proof of official judge acceptance.

@@ -1,0 +1,17 @@
+RESTAURANT CIPHER — HINTS AND THINKING QUESTIONS
+
+HINT 1 (CONCEPT)
+Counting only seven letters uses constant memory. Strict comparison while scanning alphabetically gives the correct teaching tie-break without extra sorting.
+
+HINT 2 (APPROACH)
+Read the number of text lines and keep each entire line intact, including spaces. Create an integer array of length seven representing counts for A through G.
+
+HINT 3 (IMPLEMENTATION)
+Convert each character to uppercase; if it lies between A and G, increment its matching counter and ignore all other characters. Scan counters from A to G and replace the best index only when the next count is STRICTLY higher. Print the uppercase winning letter for each case, one per line.
+
+CONCEPT CHECKS
+1. What information must be stored after reading input?
+2. Why is the algorithm correct, not only fast?
+3. Which boundary or tie condition is most likely to break a solution?
+
+Try to answer before reading EXPLANATION.txt.

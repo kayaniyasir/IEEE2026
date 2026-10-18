@@ -1,0 +1,69 @@
+READY-TO-COPY AI PROMPT — CAESAR REDUX
+
+You are an expert competitive programming tutor and Java 17 solution reviewer. Solve the ENTIRE independently paraphrased REPOSITORY PRACTICE problem below, not an assumed official version. This prompt is already self-contained: do NOT ask me to paste the problem again. Respect contest rules; do not assert official judge acceptance.
+
+================ COMPLETE QUESTION ================
+Caesar Redux — IEEEXtreme 17.0 (2023)
+
+Original paraphrase based on an authentic problem archive. View archived contest PDF (https://github.com/kmishmael/IEEEXtreme-17.0/blob/main/Ceasar%20Redux/caesar%20redux.pdf).
+
+Task
+Apply a Caesar shift to each lowercase sentence. A published team's educational interpretation uses a backward shift when the exact token 'the' appears, forward otherwise.
+
+Input
+T; for each case, a shift integer on one line and a complete text line on the next.
+
+Output
+One converted sentence per input case.
+
+Sample input (independently created test)
+
+2
+3
+the cat
+3
+abc xyz
+
+
+Expected output
+
+qeb zxq
+def abc
+
+
+Source confidence
+The exact original case-sensitivity, keyword detection, and shift rules require checking the archived PDF; this is an independently tested interpretation of a community submission.
+
+Please consult the original archived PDF for precise contest constraints before making judge-acceptance claims.
+================ END COMPLETE QUESTION ================
+
+HOW TO SOLVE IT (RECOMMENDED APPROACH)
+Step 1: Read T; for each case read the shift as a whole line and the sentence as a whole line.
+Step 2: The repository practice rule uses a backward shift only when the exact space-separated token 'the' is present; otherwise use a forward shift.
+Step 3: Compute delta with Math.floorMod(direction*shift,26), so large and negative shifts still wrap around correctly.
+Step 4: For each lowercase a-z, convert to index 0-25, add delta modulo 26, and convert back; preserve all other characters.
+Step 5: Print one transformed line per case; do not add prompts or debugging output.
+
+REASONING: Encoding a letter as a number 0..25 turns rotation into modular arithmetic, allowing wraparound in O(1) work per character.
+WORKED EXAMPLE: For shift 3 and 'the cat', the exact token 'the' occurs, so shift backward: t->q, h->e, e->b; c->z, a->x, t->q. Output 'qeb zxq'. For 'abc xyz', shift forward to 'def abc'.
+TARGET COMPLEXITY: O(total input characters) time, O(maximum sentence length) output buffer memory.
+
+RESPONSE INSTRUCTIONS:
+1. Explain the input, output, objective and every assumption in plain English, clearly noting any unverified original rules.
+2. Teach the underlying concepts (Strings and modular arithmetic) with small Java examples, but do not change the required algorithm.
+3. Explain why the approach is correct, write concise pseudocode, then dry-run the included sample and verify its expected output.
+4. Write a complete compilable Java 17 program with public class Main, one file Main.java, and standard libraries only. Follow input and output exactly. Handle potentially large input efficiently where relevant; do not print debug text or prompts.
+5. Explain important variables, loops, conditions, data structures, numeric types and corner cases line by line where needed.
+6. Analyze worst-case time and space complexity. Address every known limit without inventing unknown official limits.
+7. Generate at least five additional independently calculated valid test cases with expected outputs; include cases targeting these risks:
+   1. Reading only a word instead of a whole sentence
+   2. Detecting the three characters 'the' inside another word, rather than the practice version's space-separated token
+   3. Shifting punctuation or upper case unexpectedly
+   4. Using Java % on a negative number without normalization
+8. Review for off-by-one, overflow, input parsing, boundaries, correctness and formatting; state honestly whether you compiled or ran code.
+9. End with a single clean final Main.java code block, ready to copy and run.
+
+SOURCE CAUTION: The archived 2023 PDF has not been independently checked for exact keyword, shift, case, and input rules. This is a complete REPOSITORY PRACTICE question, not a verified verbatim official statement.
+If the archived original PDF is accessible and differs, report the differences instead of silently modifying the educational question.
+
+OPTIONAL: If I provide my Java code later, review it against the COMPLETE QUESTION above and give a minimal reproducible counterexample for each actual bug.

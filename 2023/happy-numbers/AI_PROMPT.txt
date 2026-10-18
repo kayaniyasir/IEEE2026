@@ -1,0 +1,65 @@
+READY-TO-COPY AI PROMPT — HAPPY NUMBERS
+
+You are an expert competitive programming tutor and Java 17 solution reviewer. Solve the ENTIRE independently paraphrased REPOSITORY PRACTICE problem below, not an assumed official version. This prompt is already self-contained: do NOT ask me to paste the problem again. Respect contest rules; do not assert official judge acceptance.
+
+================ COMPLETE QUESTION ================
+Happy Numbers — IEEEXtreme 17.0 (2023)
+
+Original paraphrase based on an authentic problem archive. View archived contest PDF (https://github.com/kmishmael/IEEEXtreme-17.0/blob/main/Happy%20Numbers/happy%20numbers.pdf).
+
+Task
+Count happy integers in a closed range. A happy number repeatedly replaces itself by the sum of the squares of its digits and eventually reaches 1.
+
+Input
+Two decimal integers L R, representing one range, as in the archived team solution.
+
+Output
+Number of happy integers in the interval. This teaching implementation uses modulo 1,000,000,007; check the original output specification.
+
+Sample input (independently created test)
+
+1 1000
+
+
+Expected output
+
+143
+
+
+Source confidence
+The archived public solution reads one range, but the original numerical limits and whether output uses a modulus must be confirmed against the original PDF.
+
+Please consult the original archived PDF for precise contest constraints before making judge-acceptance claims.
+================ END COMPLETE QUESTION ================
+
+HOW TO SOLVE IT (RECOMMENDED APPROACH)
+Step 1: A number is happy when repeated replacement by the sum of squared decimal digits eventually reaches 1; 4 belongs to a known unhappy loop.
+Step 2: For a D-digit bound, the first squared-digit sum is at most 81*D, which is much smaller than the number itself.
+Step 3: Use digit DP for all numbers from 0 to bound X, processing digits left to right and tracking squared-digit sum plus tight/loose relation to X.
+Step 4: After reading all digits, add counts whose final sum evolves to 1, excluding sum zero; cache sum classifications.
+Step 5: Count the answer in inclusive [L,R] as count(R)-count(L-1), modulo 1000000007 for the repository's illustrative version.
+
+REASONING: Different large integers can produce the same sum of squared digits. Digit DP aggregates these cases without iterating through the full range.
+WORKED EXAMPLE: 19 -> 1^2+9^2=82 -> 8^2+2^2=68 -> 6^2+8^2=100 -> 1, so 19 is happy. The provided practice sample '1 1000' counts 143 happy values.
+TARGET COMPLEXITY: O(10*81*D^2) digit-DP transitions and O(81*D) DP memory (plus classification of sums).
+
+RESPONSE INSTRUCTIONS:
+1. Explain the input, output, objective and every assumption in plain English, clearly noting any unverified original rules.
+2. Teach the underlying concepts (Digit sums, cycle detection and digit DP) with small Java examples, but do not change the required algorithm.
+3. Explain why the approach is correct, write concise pseudocode, then dry-run the included sample and verify its expected output.
+4. Write a complete compilable Java 17 program with public class Main, one file Main.java, and standard libraries only. Follow input and output exactly. Handle potentially large input efficiently where relevant; do not print debug text or prompts.
+5. Explain important variables, loops, conditions, data structures, numeric types and corner cases line by line where needed.
+6. Analyze worst-case time and space complexity. Address every known limit without inventing unknown official limits.
+7. Generate at least five additional independently calculated valid test cases with expected outputs; include cases targeting these risks:
+   1. Trying every integer in a very large range
+   2. Forgetting the endpoints are inclusive
+   3. Treating 0 as happy
+   4. Mishandling subtraction at the lower bound
+   5. Calling the modulus official without checking the source
+8. Review for off-by-one, overflow, input parsing, boundaries, correctness and formatting; state honestly whether you compiled or ran code.
+9. End with a single clean final Main.java code block, ready to copy and run.
+
+SOURCE CAUTION: The 2023 archived team solution supports one input range, but exact original limits and modulus are unverified. Modulo 1000000007 is the repository teaching assumption, NOT a verified contest rule.
+If the archived original PDF is accessible and differs, report the differences instead of silently modifying the educational question.
+
+OPTIONAL: If I provide my Java code later, review it against the COMPLETE QUESTION above and give a minimal reproducible counterexample for each actual bug.

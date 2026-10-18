@@ -1,0 +1,42 @@
+RESTAURANT CIPHER — DETAILED JAVA SOLUTION EXPLANATION
+
+1. WHAT THE PROBLEM MEANS
+For each text line, count A through G (case-insensitive) and report the most frequent letter; break ties alphabetically.
+
+2. REASONING — WHY THIS APPROACH
+Counting only seven letters uses constant memory. Strict comparison while scanning alphabetically gives the correct teaching tie-break without extra sorting.
+
+3. ALGORITHM STEP BY STEP
+1) Read the number of text lines and keep each entire line intact, including spaces.
+
+2) Create an integer array of length seven representing counts for A through G.
+
+3) Convert each character to uppercase; if it lies between A and G, increment its matching counter and ignore all other characters.
+
+4) Scan counters from A to G and replace the best index only when the next count is STRICTLY higher.
+
+5) Print the uppercase winning letter for each case, one per line.
+
+4. WORKED EXAMPLE
+For 'AABb!' the A and B counts are both 2, so choose A. For 'cCdD', C and D both occur twice, so choose C. For 'gggA', G wins 3 to 1.
+
+5. JAVA IMPLEMENTATION GUIDANCE
+Write one file Main.java with public class Main and main(String[] args). Use suitable standard Java 17 input handling, loops, methods, arrays and numeric types. Output only the requested answers; never add input prompts. Review Main.java only after attempting your own implementation.
+
+6. COMPLEXITY
+O(total input characters) time and O(1) auxiliary counting memory.
+
+7. COMMON ERRORS
+1) Counting letters H-Z too
+2) Ignoring lowercase input
+3) Using >= and accidentally selecting the later tied letter
+4) Reading a line token by token
+5) Assuming the no-valid-letter behavior is official
+
+8. FURTHER PRACTICE
+Explain the key invariant, invent at least five boundary tests, and compare your code with sample.in/sample.out. Check empty/small inputs, ties, overflow, and input layout wherever applicable.
+
+9. ORIGINAL SOURCE STATUS
+2023 original contest PDF exists but its tie rule, bounds, and empty/no-A-G behavior remain unverified. This is the repository practice interpretation.
+
+See QUESTION.txt, TEST_CASES.txt and Main.java for the exercise and local checks. Passing local tests is not proof of official judge acceptance.

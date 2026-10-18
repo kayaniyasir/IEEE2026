@@ -1,0 +1,34 @@
+HAPPY NUMBERS — LOCAL TEST GUIDE
+
+Tests — Happy Numbers
+
+The Java 17 file compiled and passed its example and independent development tests.
+
+Input
+
+1 1000
+
+
+Expected output
+
+143
+
+
+The sample is an independently constructed teaching case, not claimed as an official sample.
+
+Also test: minimum bounds, ties or repeated values, invalid/absent cases where defined, and a large valid input. The archived public solution reads one range, but the original numerical limits and whether output uses a modulus must be confirmed against the original PDF.
+
+TESTING PROCEDURE
+1. Compile: javac Main.java
+2. Run: java Main < sample.in
+3. Compare exactly with sample.out, ignoring at most the final newline.
+4. Create at least five independently reasoned extra tests for:
+   1) Trying every integer in a very large range
+   2) Forgetting the endpoints are inclusive
+   3) Treating 0 as happy
+   4) Mishandling subtraction at the lower bound
+   5) Calling the modulus official without checking the source
+5. Never infer official judge acceptance from these local checks.
+
+SOURCE WARNING
+The 2023 archived team solution supports one input range, but exact original limits and modulus are unverified. Modulo 1000000007 is the repository teaching assumption, NOT a verified contest rule.
