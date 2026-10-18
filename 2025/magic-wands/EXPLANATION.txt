@@ -38,9 +38,3 @@ COMMON MISTAKES
 3. Checking only original H/S without applying parity
 4. Attempting a flip that passes the right boundary
 
-SELF-CHECK
-Explain which algorithm invariant is maintained, why the result is optimal and what would change if the crucial strict comparison became non-strict. Construct five small independent tests. Verify output format exactly.
-
-FIDELITY NOTE
-Authentic 2025 public problem writeup available; the repository's teaching samples are independently checked, not asserted as official judge samples.
-Local compilation and tests do not prove official contest judge acceptance.
