@@ -1,0 +1,47 @@
+RAJU'S MATRIX RUNS — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/Raju%27s%20Matrix%20Runs/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+On an N x M integer grid, move up/down/left/right (never diagonally), always to a strictly greater value. Find the maximum number of cells in any valid increasing path.
+
+Input
+N M, followed by N rows of M integers.
+
+WHY THIS ALGORITHM WORKS
+The strict inequality makes the move graph acyclic. Reverse topological DP aggregates path lengths from larger neighbors before a smaller cell is finalized, so every valid increasing path is considered once.
+
+ALGORITHM
+1. Treat each matrix cell as a vertex and allow directed moves only to strictly greater up/down/left/right neighbors.
+
+2. Count, for each cell, its strictly GREATER neighbors. These counts are its number of unprocessed successors in the increasing-path graph.
+
+3. Initialize dp[cell]=1 and put all local maxima (greater count zero) in a queue.
+
+4. Pop a maximum cell u. For each adjacent strictly smaller cell v, set dp[v]=max(dp[v],1+dp[u]). Decrease its greater-neighbor count and enqueue v when the count becomes zero.
+
+5. Return the largest dp value. Processing in reverse topological order avoids deep recursion and correctly computes increasing paths viewed from each start.
+
+WORKED SAMPLE
+A 3×3 snake: 1 2 3 / 6 5 4 / 7 8 9. Valid steps 1→2→3→4→5→6→7→8→9 traverse neighboring cells. The best length is 9.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use standard Java 17 libraries only. For input-heavy problems use a fast token parser or BufferedReader and process the required test cases without prompts. Validate your boundaries, comparator rules and numeric types. No debug output. Test with sample.in and sample.out before comparing against Main.java.
+
+TIME AND SPACE
+O(N*M) time and O(N*M) memory, since each cell has at most four adjacent cells.
+
+COMMON MISTAKES
+1. Allowing >= moves across equal-valued cells
+2. Allowing diagonal moves
+3. Naive exponential DFS without memoization
+4. Recursive DFS stack overflow for very long paths
+5. Copying a contradictory 4x4 teaching example that incorrectly counts six
+
+SELF-CHECK
+Explain which algorithm invariant is maintained, why the result is optimal and what would change if the crucial strict comparison became non-strict. Construct five small independent tests. Verify output format exactly.
+
+FIDELITY NOTE
+The public 2025 writeup contradicts itself on an example containing zero and a claimed 4x4 path length. This repository uses a corrected independently tested sample and does not represent that archived example as verified.
+Local compilation and tests do not prove official contest judge acceptance.

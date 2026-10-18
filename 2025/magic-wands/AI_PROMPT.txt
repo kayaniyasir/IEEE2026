@@ -1,0 +1,84 @@
+COPY-READY SOLUTION PROMPT FOR MAGIC WANDS
+Use for legitimate practice, not in violation of live contest rules.
+
+ROLE: You are an experienced Java 17 algorithm tutor and code reviewer. Solve the COMPLETE educational practice specification below. It is self-contained: do not ask me to paste the problem again. Distinguish repository rules from unverified official information.
+
+========== COMPLETE QUESTION ==========
+Magic Wands — independently written paraphrase of a real 2025 IEEEXtreme problem
+
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/Magic%20Wands/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+For each string S of H (happy) and S (sad), a magic wand flips the mood of exactly K consecutive characters. Determine the smallest number of operations to make every character H; print -1 if impossible.
+
+Input
+T test cases; for each case N K and a length-N string of H and S.
+
+Output
+One minimum-operation count per case, or -1.
+
+Constraints
+N,K<=100,000; the sum of N over all test cases <=200,000.
+
+Test input
+
+4
+3 2 SSH
+3 2 HHH
+3 2 SHS
+1 1 S
+
+
+Test output
+
+1
+0
+2
+1
+
+
+Sample provenance: Verified independent teaching case or archived example; this page does not claim official judge acceptance.
+
+Archive limitations: Derived from the publicly archived IEEEXtreme 19.0 statement. The example and exhaustive small cases have been cross-checked; community discussion contains some incorrect examples.
+========== END OF QUESTION ==========
+
+HOW TO SOLVE THE QUESTION
+1. Read T, then N,K and the H/S string for each test case.
+
+2. Process positions left to right. Once you arrive at index i, no flip started later can affect that position, so any sad effective state MUST be fixed now.
+
+3. Track active flips by their parity (even means current mood unchanged, odd means inverted).
+
+4. When an unhappy position is encountered, start a K-long flip there if i+K<=N; toggle active parity and record the expiration at position i+K.
+
+5. If a sad position cannot fit a new K-long flip, print -1. Otherwise the number of flips is the minimum.
+
+WHY THE ALGORITHM WORKS
+The first sad effective position forces the leftmost possible flip. All other decisions would leave that position unfixed. Parity and expiry events simulate range flips in linear time, rather than modifying K characters per flip.
+
+SAMPLE TRACE
+With K=2 and SHS, flip the first two positions: SHS -> HSS. Flip positions two and three: HSS -> HHH. Minimum 2. SSH needs only one flip, and HHH needs zero.
+
+COMPLEXITY TARGET
+O(sum N) time and O(max N) auxiliary memory.
+
+FOLLOW THESE INSTRUCTIONS IN THIS ORDER:
+1. Restate the full goal, input, output, constraints, and all boundary conditions in beginner-friendly English.
+2. Identify and briefly teach the key Java and algorithm concepts: Greedy choices, parity, difference arrays and range toggles.
+3. Explain the algorithm above in numbered steps, provide pseudocode and justify correctness. Explain why its worst-case complexity is suitable for the input size.
+4. Trace the supplied example step by step. Verify the EXACT expected output provided in the complete question, without altering it.
+5. Give a complete, standalone, compilable JAVA 17 solution: public class Main in file Main.java. Standard library only, correct fast input where useful, exact required output, and no interactive console prompts or debugging lines.
+6. Explain all important arrays, loop invariants, methods, counters, input parsing details, data types and tricky comparisons.
+7. Present precise worst-case time and auxiliary space complexity.
+8. Construct at least five NEW independently calculated valid edge cases with expected outputs, including these possible pitfalls:
+   1) Physically toggling K positions per flip, causing O(NK) time
+   2) Forgetting expiry of an earlier active flip
+   3) Checking only original H/S without applying parity
+   4) Attempting a flip that passes the right boundary
+9. Audit for syntax errors, off-by-one, overflow, impossible cases, recursion limits, output formatting and timeouts. State whether compilation and execution were actually performed; never claim untested code is accepted by the official judge.
+10. End with the clean final Main.java code block ready to copy to a Java 17 judge after the explanations.
+
+SOURCE CAUTION: Authentic 2025 public problem writeup available; the repository's teaching samples are independently checked, not asserted as official judge samples.
+If the archived statement differs from these educational rules, report the discrepancy separately instead of silently inventing or changing requirements.
+
+AFTERWARD: If I paste MY Java code, check it against the complete question and provide the smallest valid failing input for each demonstrated bug.

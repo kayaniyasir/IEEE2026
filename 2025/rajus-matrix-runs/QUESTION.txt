@@ -1,0 +1,35 @@
+Raju's Matrix Runs — independently written paraphrase of a real 2025 IEEEXtreme problem
+
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/Raju%27s%20Matrix%20Runs/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+On an N x M integer grid, move up/down/left/right (never diagonally), always to a strictly greater value. Find the maximum number of cells in any valid increasing path.
+
+Input
+N M, followed by N rows of M integers.
+
+Output
+One integer: the maximum path length.
+
+Constraints
+The public description lists N,M <= 200. Its claim of exclusively positive cells conflicts with its own sample containing zero.
+
+Test input
+
+3 3
+1 2 3
+6 5 4
+7 8 9
+
+
+Test output
+
+9
+
+
+Sample provenance: Verified independent teaching case or archived example; this page does not claim official judge acceptance.
+
+Archive limitations: A third-party archived description contains a contradictory 4x4 increasing-path example (reports 6 where strict increasing gives 5). The included 3x3 sample is independently verified and the discrepancy is documented.
+
+SOURCE CONFIDENCE NOTE
+The public 2025 writeup contradicts itself on an example containing zero and a claimed 4x4 path length. This repository uses a corrected independently tested sample and does not represent that archived example as verified.

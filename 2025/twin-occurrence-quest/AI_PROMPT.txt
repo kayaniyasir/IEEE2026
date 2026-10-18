@@ -1,0 +1,85 @@
+COPY-READY SOLUTION PROMPT FOR THE TWIN OCCURRENCE QUEST
+Use for legitimate practice, not in violation of live contest rules.
+
+ROLE: You are an experienced Java 17 algorithm tutor and code reviewer. Solve the COMPLETE educational practice specification below. It is self-contained: do not ask me to paste the problem again. Distinguish repository rules from unverified official information.
+
+========== COMPLETE QUESTION ==========
+The Twin Occurrence Quest — independently written paraphrase of a real 2025 IEEEXtreme problem
+
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/The%20Twin%20Occurrence%20Quest/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+Given a sorted nondecreasing integer array and Q query values X, print the 1-indexed first and last positions where X occurs. If absent, print -1 -1.
+
+Input
+N Q; N sorted integers; Q query values (one per line or whitespace-separated).
+
+Output
+For each query, 'first last' using 1-based indexing, or -1 -1.
+
+Constraints
+1<=N,Q<=100,000; each array value and query within +/-10^9.
+
+Test input
+
+8 4
+2 4 4 4 5 8 10 12
+4
+10
+5
+11
+
+
+Test output
+
+2 4
+7 7
+5 5
+-1 -1
+
+
+Sample provenance: Verified independent teaching case or archived example; this page does not claim official judge acceptance.
+
+Archive limitations: Problem format, numerical limits, and example were compared to a publicly archived IEEEXtreme 19.0 statement. Local tests pass; contest judge acceptance is unverified.
+========== END OF QUESTION ==========
+
+HOW TO SOLVE THE QUESTION
+1. Read N and Q, then the N integers, already sorted in nondecreasing order. Do not reorder the original positions.
+
+2. For query x, binary search lower_bound: the first index i where A[i]>=x. Maintain half-open interval [left,right).
+
+3. If i==N or A[i]!=x, the answer is -1 -1.
+
+4. Otherwise use upper_bound: first index j where A[j]>x, which is one past the final matching Java index.
+
+5. Print i+1 as the first 1-based position and j as the last 1-based position. Repeat for all Q queries.
+
+WHY THE ALGORITHM WORKS
+In a sorted array all occurrences of one value form a single block. Two binary searches find its boundaries in O(log N) even if there are many duplicates.
+
+SAMPLE TRACE
+For A=[2,4,4,4,5,8,10,12], x=4: lower bound index 1, upper bound index 4, output 2 4. For x=11, the lower bound points at 12, so print -1 -1.
+
+COMPLEXITY TARGET
+O(N+Qlog N) time and O(N) memory.
+
+FOLLOW THESE INSTRUCTIONS IN THIS ORDER:
+1. Restate the full goal, input, output, constraints, and all boundary conditions in beginner-friendly English.
+2. Identify and briefly teach the key Java and algorithm concepts: Sorted arrays, binary search, lower_bound and upper_bound.
+3. Explain the algorithm above in numbered steps, provide pseudocode and justify correctness. Explain why its worst-case complexity is suitable for the input size.
+4. Trace the supplied example step by step. Verify the EXACT expected output provided in the complete question, without altering it.
+5. Give a complete, standalone, compilable JAVA 17 solution: public class Main in file Main.java. Standard library only, correct fast input where useful, exact required output, and no interactive console prompts or debugging lines.
+6. Explain all important arrays, loop invariants, methods, counters, input parsing details, data types and tricky comparisons.
+7. Present precise worst-case time and auxiliary space complexity.
+8. Construct at least five NEW independently calculated valid edge cases with expected outputs, including these possible pitfalls:
+   1) Returning any matched index instead of first and last
+   2) Printing zero-based rather than one-based positions
+   3) Using upper_bound as the last matched index instead of first greater index
+   4) Reading past A[N] if lower bound returns N
+9. Audit for syntax errors, off-by-one, overflow, impossible cases, recursion limits, output formatting and timeouts. State whether compilation and execution were actually performed; never claim untested code is accepted by the official judge.
+10. End with the clean final Main.java code block ready to copy to a Java 17 judge after the explanations.
+
+SOURCE CAUTION: Problem format, sample and constraints are present in a public 2025 IEEEXtreme 19.0 archive; official judge acceptance remains unverified.
+If the archived statement differs from these educational rules, report the discrepancy separately instead of silently inventing or changing requirements.
+
+AFTERWARD: If I paste MY Java code, check it against the complete question and provide the smallest valid failing input for each demonstrated bug.

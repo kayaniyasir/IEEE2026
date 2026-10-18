@@ -1,0 +1,45 @@
+MAGIC WANDS — JAVA TEST PLAN
+
+Java tests — Magic Wands
+
+Local Java 17 compilation and sample checks passed.
+
+
+javac Main.java
+java Main < sample.in
+
+
+Sample input
+
+4
+3 2 SSH
+3 2 HHH
+3 2 SHS
+1 1 S
+
+
+Expected output
+
+1
+0
+2
+1
+
+
+Try additionally: one element, repeated/equal values, impossible cases, large valid inputs and random small inputs checked by an independent brute-force oracle.
+
+Archive integrity: Derived from the publicly archived IEEEXtreme 19.0 statement. The example and exhaustive small cases have been cross-checked; community discussion contains some incorrect examples.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output with sample.out (allow at most a trailing final newline).
+
+FURTHER PRACTICE
+1. Physically toggling K positions per flip, causing O(NK) time
+2. Forgetting expiry of an earlier active flip
+3. Checking only original H/S without applying parity
+4. Attempting a flip that passes the right boundary
+
+Compute expected results independently and never equate local test success with official judge acceptance.
+SOURCE NOTE: Authentic 2025 public problem writeup available; the repository's teaching samples are independently checked, not asserted as official judge samples.

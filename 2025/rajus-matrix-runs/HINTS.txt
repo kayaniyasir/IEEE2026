@@ -1,0 +1,41 @@
+RAJU'S MATRIX RUNS — PROGRESSIVE HINTS
+
+HINT 1: CONCEPT
+The strict inequality makes the move graph acyclic. Reverse topological DP aggregates path lengths from larger neighbors before a smaller cell is finalized, so every valid increasing path is considered once.
+
+HINT 2: ALGORITHM
+Treat each matrix cell as a vertex and allow directed moves only to strictly greater up/down/left/right neighbors.
+Count, for each cell, its strictly GREATER neighbors. These counts are its number of unprocessed successors in the increasing-path graph.
+
+HINT 3: JAVA IMPLEMENTATION
+Initialize dp[cell]=1 and put all local maxima (greater count zero) in a queue.
+Pop a maximum cell u. For each adjacent strictly smaller cell v, set dp[v]=max(dp[v],1+dp[u]). Decrease its greater-neighbor count and enqueue v when the count becomes zero.
+Return the largest dp value. Processing in reverse topological order avoids deep recursion and correctly computes increasing paths viewed from each start.
+
+CONCEPT QUESTIONS
+1. What is the key invariant of the algorithm?
+2. Why does the algorithm terminate and produce the right answer?
+3. Which small counterexample would catch a common mistake?
+
+Original educational hints:
+Hints — Raju's Matrix Runs
+
+<details><summary>Hint 1 — Core concept</summary>
+
+Think about Graph search + longest path. What condition makes the answer valid?
+
+</details>
+
+<details><summary>Hint 2 — Strategy</summary>
+
+Think of every valid move as a directed edge from a smaller cell to a larger one. Because values increase, the resulting graph has no directed cycle.
+
+</details>
+
+<details><summary>Hint 3 — Reasoning challenge</summary>
+
+Try to prove why the algorithm will find the correct answer. Can you construct a counterexample to a simpler approach?
+
+</details>
+
+Concept quiz: What is the worst-case time complexity? What special case breaks a naive algorithm?

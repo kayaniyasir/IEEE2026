@@ -1,0 +1,46 @@
+THE TWIN OCCURRENCE QUEST — JAVA TEST PLAN
+
+Java tests — The Twin Occurrence Quest
+
+Local Java 17 compilation and sample checks passed.
+
+
+javac Main.java
+java Main < sample.in
+
+
+Sample input
+
+8 4
+2 4 4 4 5 8 10 12
+4
+10
+5
+11
+
+
+Expected output
+
+2 4
+7 7
+5 5
+-1 -1
+
+
+Try additionally: one element, repeated/equal values, impossible cases, large valid inputs and random small inputs checked by an independent brute-force oracle.
+
+Archive integrity: Problem format, numerical limits, and example were compared to a publicly archived IEEEXtreme 19.0 statement. Local tests pass; contest judge acceptance is unverified.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output with sample.out (allow at most a trailing final newline).
+
+FURTHER PRACTICE
+1. Returning any matched index instead of first and last
+2. Printing zero-based rather than one-based positions
+3. Using upper_bound as the last matched index instead of first greater index
+4. Reading past A[N] if lower bound returns N
+
+Compute expected results independently and never equate local test success with official judge acceptance.
+SOURCE NOTE: Problem format, sample and constraints are present in a public 2025 IEEEXtreme 19.0 archive; official judge acceptance remains unverified.

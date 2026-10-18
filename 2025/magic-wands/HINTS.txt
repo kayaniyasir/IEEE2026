@@ -1,0 +1,41 @@
+MAGIC WANDS — PROGRESSIVE HINTS
+
+HINT 1: CONCEPT
+The first sad effective position forces the leftmost possible flip. All other decisions would leave that position unfixed. Parity and expiry events simulate range flips in linear time, rather than modifying K characters per flip.
+
+HINT 2: ALGORITHM
+Read T, then N,K and the H/S string for each test case.
+Process positions left to right. Once you arrive at index i, no flip started later can affect that position, so any sad effective state MUST be fixed now.
+
+HINT 3: JAVA IMPLEMENTATION
+Track active flips by their parity (even means current mood unchanged, odd means inverted).
+When an unhappy position is encountered, start a K-long flip there if i+K<=N; toggle active parity and record the expiration at position i+K.
+If a sad position cannot fit a new K-long flip, print -1. Otherwise the number of flips is the minimum.
+
+CONCEPT QUESTIONS
+1. What is the key invariant of the algorithm?
+2. Why does the algorithm terminate and produce the right answer?
+3. Which small counterexample would catch a common mistake?
+
+Original educational hints:
+Hints — Magic Wands
+
+<details><summary>Hint 1 — Core concept</summary>
+
+Think about Greedy + difference array. What condition makes the answer valid?
+
+</details>
+
+<details><summary>Hint 2 — Strategy</summary>
+
+Scan left-to-right. Before processing position i, combine the original letter with the parity of all flips still affecting i. A sad position must be flipped starting there, if possible.
+
+</details>
+
+<details><summary>Hint 3 — Reasoning challenge</summary>
+
+Try to prove why the algorithm will find the correct answer. Can you construct a counterexample to a simpler approach?
+
+</details>
+
+Concept quiz: What is the worst-case time complexity? What special case breaks a naive algorithm?

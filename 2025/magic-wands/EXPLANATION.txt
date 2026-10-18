@@ -1,0 +1,46 @@
+MAGIC WANDS — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/Magic%20Wands/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+For each string S of H (happy) and S (sad), a magic wand flips the mood of exactly K consecutive characters. Determine the smallest number of operations to make every character H; print -1 if impossible.
+
+Input
+T test cases; for each case N K and a length-N string of H and S.
+
+WHY THIS ALGORITHM WORKS
+The first sad effective position forces the leftmost possible flip. All other decisions would leave that position unfixed. Parity and expiry events simulate range flips in linear time, rather than modifying K characters per flip.
+
+ALGORITHM
+1. Read T, then N,K and the H/S string for each test case.
+
+2. Process positions left to right. Once you arrive at index i, no flip started later can affect that position, so any sad effective state MUST be fixed now.
+
+3. Track active flips by their parity (even means current mood unchanged, odd means inverted).
+
+4. When an unhappy position is encountered, start a K-long flip there if i+K<=N; toggle active parity and record the expiration at position i+K.
+
+5. If a sad position cannot fit a new K-long flip, print -1. Otherwise the number of flips is the minimum.
+
+WORKED SAMPLE
+With K=2 and SHS, flip the first two positions: SHS -> HSS. Flip positions two and three: HSS -> HHH. Minimum 2. SSH needs only one flip, and HHH needs zero.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use standard Java 17 libraries only. For input-heavy problems use a fast token parser or BufferedReader and process the required test cases without prompts. Validate your boundaries, comparator rules and numeric types. No debug output. Test with sample.in and sample.out before comparing against Main.java.
+
+TIME AND SPACE
+O(sum N) time and O(max N) auxiliary memory.
+
+COMMON MISTAKES
+1. Physically toggling K positions per flip, causing O(NK) time
+2. Forgetting expiry of an earlier active flip
+3. Checking only original H/S without applying parity
+4. Attempting a flip that passes the right boundary
+
+SELF-CHECK
+Explain which algorithm invariant is maintained, why the result is optimal and what would change if the crucial strict comparison became non-strict. Construct five small independent tests. Verify output format exactly.
+
+FIDELITY NOTE
+Authentic 2025 public problem writeup available; the repository's teaching samples are independently checked, not asserted as official judge samples.
+Local compilation and tests do not prove official contest judge acceptance.

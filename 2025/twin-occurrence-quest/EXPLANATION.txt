@@ -1,0 +1,46 @@
+THE TWIN OCCURRENCE QUEST — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/The%20Twin%20Occurrence%20Quest/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+Given a sorted nondecreasing integer array and Q query values X, print the 1-indexed first and last positions where X occurs. If absent, print -1 -1.
+
+Input
+N Q; N sorted integers; Q query values (one per line or whitespace-separated).
+
+WHY THIS ALGORITHM WORKS
+In a sorted array all occurrences of one value form a single block. Two binary searches find its boundaries in O(log N) even if there are many duplicates.
+
+ALGORITHM
+1. Read N and Q, then the N integers, already sorted in nondecreasing order. Do not reorder the original positions.
+
+2. For query x, binary search lower_bound: the first index i where A[i]>=x. Maintain half-open interval [left,right).
+
+3. If i==N or A[i]!=x, the answer is -1 -1.
+
+4. Otherwise use upper_bound: first index j where A[j]>x, which is one past the final matching Java index.
+
+5. Print i+1 as the first 1-based position and j as the last 1-based position. Repeat for all Q queries.
+
+WORKED SAMPLE
+For A=[2,4,4,4,5,8,10,12], x=4: lower bound index 1, upper bound index 4, output 2 4. For x=11, the lower bound points at 12, so print -1 -1.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use standard Java 17 libraries only. For input-heavy problems use a fast token parser or BufferedReader and process the required test cases without prompts. Validate your boundaries, comparator rules and numeric types. No debug output. Test with sample.in and sample.out before comparing against Main.java.
+
+TIME AND SPACE
+O(N+Qlog N) time and O(N) memory.
+
+COMMON MISTAKES
+1. Returning any matched index instead of first and last
+2. Printing zero-based rather than one-based positions
+3. Using upper_bound as the last matched index instead of first greater index
+4. Reading past A[N] if lower bound returns N
+
+SELF-CHECK
+Explain which algorithm invariant is maintained, why the result is optimal and what would change if the crucial strict comparison became non-strict. Construct five small independent tests. Verify output format exactly.
+
+FIDELITY NOTE
+Problem format, sample and constraints are present in a public 2025 IEEEXtreme 19.0 archive; official judge acceptance remains unverified.
+Local compilation and tests do not prove official contest judge acceptance.

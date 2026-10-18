@@ -1,0 +1,81 @@
+COPY-READY SOLUTION PROMPT FOR RAJU'S MATRIX RUNS
+Use for legitimate practice, not in violation of live contest rules.
+
+ROLE: You are an experienced Java 17 algorithm tutor and code reviewer. Solve the COMPLETE educational practice specification below. It is self-contained: do not ask me to paste the problem again. Distinguish repository rules from unverified official information.
+
+========== COMPLETE QUESTION ==========
+Raju's Matrix Runs — independently written paraphrase of a real 2025 IEEEXtreme problem
+
+Read publicly archived statement (https://github.com/AlejandroG-code/IEEEXtreme19-Solutions/blob/main/Raju%27s%20Matrix%20Runs/problem.md). The text here is educational paraphrase, not a reproduction of official copyrighted text.
+
+Task
+On an N x M integer grid, move up/down/left/right (never diagonally), always to a strictly greater value. Find the maximum number of cells in any valid increasing path.
+
+Input
+N M, followed by N rows of M integers.
+
+Output
+One integer: the maximum path length.
+
+Constraints
+The public description lists N,M <= 200. Its claim of exclusively positive cells conflicts with its own sample containing zero.
+
+Test input
+
+3 3
+1 2 3
+6 5 4
+7 8 9
+
+
+Test output
+
+9
+
+
+Sample provenance: Verified independent teaching case or archived example; this page does not claim official judge acceptance.
+
+Archive limitations: A third-party archived description contains a contradictory 4x4 increasing-path example (reports 6 where strict increasing gives 5). The included 3x3 sample is independently verified and the discrepancy is documented.
+========== END OF QUESTION ==========
+
+HOW TO SOLVE THE QUESTION
+1. Treat each matrix cell as a vertex and allow directed moves only to strictly greater up/down/left/right neighbors.
+
+2. Count, for each cell, its strictly GREATER neighbors. These counts are its number of unprocessed successors in the increasing-path graph.
+
+3. Initialize dp[cell]=1 and put all local maxima (greater count zero) in a queue.
+
+4. Pop a maximum cell u. For each adjacent strictly smaller cell v, set dp[v]=max(dp[v],1+dp[u]). Decrease its greater-neighbor count and enqueue v when the count becomes zero.
+
+5. Return the largest dp value. Processing in reverse topological order avoids deep recursion and correctly computes increasing paths viewed from each start.
+
+WHY THE ALGORITHM WORKS
+The strict inequality makes the move graph acyclic. Reverse topological DP aggregates path lengths from larger neighbors before a smaller cell is finalized, so every valid increasing path is considered once.
+
+SAMPLE TRACE
+A 3×3 snake: 1 2 3 / 6 5 4 / 7 8 9. Valid steps 1→2→3→4→5→6→7→8→9 traverse neighboring cells. The best length is 9.
+
+COMPLEXITY TARGET
+O(N*M) time and O(N*M) memory, since each cell has at most four adjacent cells.
+
+FOLLOW THESE INSTRUCTIONS IN THIS ORDER:
+1. Restate the full goal, input, output, constraints, and all boundary conditions in beginner-friendly English.
+2. Identify and briefly teach the key Java and algorithm concepts: Matrix graph, topological processing and dynamic programming.
+3. Explain the algorithm above in numbered steps, provide pseudocode and justify correctness. Explain why its worst-case complexity is suitable for the input size.
+4. Trace the supplied example step by step. Verify the EXACT expected output provided in the complete question, without altering it.
+5. Give a complete, standalone, compilable JAVA 17 solution: public class Main in file Main.java. Standard library only, correct fast input where useful, exact required output, and no interactive console prompts or debugging lines.
+6. Explain all important arrays, loop invariants, methods, counters, input parsing details, data types and tricky comparisons.
+7. Present precise worst-case time and auxiliary space complexity.
+8. Construct at least five NEW independently calculated valid edge cases with expected outputs, including these possible pitfalls:
+   1) Allowing >= moves across equal-valued cells
+   2) Allowing diagonal moves
+   3) Naive exponential DFS without memoization
+   4) Recursive DFS stack overflow for very long paths
+   5) Copying a contradictory 4x4 teaching example that incorrectly counts six
+9. Audit for syntax errors, off-by-one, overflow, impossible cases, recursion limits, output formatting and timeouts. State whether compilation and execution were actually performed; never claim untested code is accepted by the official judge.
+10. End with the clean final Main.java code block ready to copy to a Java 17 judge after the explanations.
+
+SOURCE CAUTION: The public 2025 writeup contradicts itself on an example containing zero and a claimed 4x4 path length. This repository uses a corrected independently tested sample and does not represent that archived example as verified.
+If the archived statement differs from these educational rules, report the discrepancy separately instead of silently inventing or changing requirements.
+
+AFTERWARD: If I paste MY Java code, check it against the complete question and provide the smallest valid failing input for each demonstrated bug.

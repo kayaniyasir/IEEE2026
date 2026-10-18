@@ -1,0 +1,42 @@
+RAJU'S MATRIX RUNS — JAVA TEST PLAN
+
+Java tests — Raju's Matrix Runs
+
+Local Java 17 compilation and sample checks passed.
+
+
+javac Main.java
+java Main < sample.in
+
+
+Sample input
+
+3 3
+1 2 3
+6 5 4
+7 8 9
+
+
+Expected output
+
+9
+
+
+Try additionally: one element, repeated/equal values, impossible cases, large valid inputs and random small inputs checked by an independent brute-force oracle.
+
+Archive integrity: A third-party archived description contains a contradictory 4x4 increasing-path example (reports 6 where strict increasing gives 5). The included 3x3 sample is independently verified and the discrepancy is documented.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output with sample.out (allow at most a trailing final newline).
+
+FURTHER PRACTICE
+1. Allowing >= moves across equal-valued cells
+2. Allowing diagonal moves
+3. Naive exponential DFS without memoization
+4. Recursive DFS stack overflow for very long paths
+5. Copying a contradictory 4x4 teaching example that incorrectly counts six
+
+Compute expected results independently and never equate local test success with official judge acceptance.
+SOURCE NOTE: The public 2025 writeup contradicts itself on an example containing zero and a claimed 4x4 path length. This repository uses a corrected independently tested sample and does not represent that archived example as verified.
