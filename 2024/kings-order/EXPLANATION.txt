@@ -38,9 +38,4 @@ COMMON MISTAKES
 3. Inserting nodes before indegree reaches zero
 4. Forgetting tie-breaking by task ID or cycle detection
 
-SELF-CHECK
-Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
-
-FIDELITY NOTE
-This is a reconstruction from a 2024 contestant submission; exact official ties and size limits are not independently verified.
 Local Java sample results do not prove official judge acceptance.
