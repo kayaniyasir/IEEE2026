@@ -38,9 +38,3 @@ COMMON MISTAKES
 3. Allowing x>y or temperatures outside [-100,100]
 4. Accidentally requiring x and y to differ (equal temperatures are allowed here)
 
-SELF-CHECK
-Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
-
-FIDELITY NOTE
-Based on the cited public IEEEXtreme practice formulation, including bounded integer temperatures and lexical selection.
-Local Java sample results do not prove official judge acceptance.
