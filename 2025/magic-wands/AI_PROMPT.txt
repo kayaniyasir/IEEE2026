@@ -78,7 +78,3 @@ FOLLOW THESE INSTRUCTIONS IN THIS ORDER:
 9. Audit for syntax errors, off-by-one, overflow, impossible cases, recursion limits, output formatting and timeouts. State whether compilation and execution were actually performed; never claim untested code is accepted by the official judge.
 10. End with the clean final Main.java code block ready to copy to a Java 17 judge after the explanations.
 
-SOURCE CAUTION: Authentic 2025 public problem writeup available; the repository's teaching samples are independently checked, not asserted as official judge samples.
-If the archived statement differs from these educational rules, report the discrepancy separately instead of silently inventing or changing requirements.
-
-AFTERWARD: If I paste MY Java code, check it against the complete question and provide the smallest valid failing input for each demonstrated bug.
