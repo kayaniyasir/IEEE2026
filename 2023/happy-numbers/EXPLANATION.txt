@@ -32,11 +32,3 @@ O(10*81*D^2) digit-DP transitions and O(81*D) DP memory (plus classification of 
 3) Treating 0 as happy
 4) Mishandling subtraction at the lower bound
 5) Calling the modulus official without checking the source
-
-8. FURTHER PRACTICE
-Explain the key invariant, invent at least five boundary tests, and compare your code with sample.in/sample.out. Check empty/small inputs, ties, overflow, and input layout wherever applicable.
-
-9. ORIGINAL SOURCE STATUS
-The 2023 archived team solution supports one input range, but exact original limits and modulus are unverified. Modulo 1000000007 is the repository teaching assumption, NOT a verified contest rule.
-
-See QUESTION.txt, TEST_CASES.txt and Main.java for the exercise and local checks. Passing local tests is not proof of official judge acceptance.
