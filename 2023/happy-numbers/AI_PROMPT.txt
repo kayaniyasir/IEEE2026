@@ -59,7 +59,5 @@ RESPONSE INSTRUCTIONS:
 8. Review for off-by-one, overflow, input parsing, boundaries, correctness and formatting; state honestly whether you compiled or ran code.
 9. End with a single clean final Main.java code block, ready to copy and run.
 
-SOURCE CAUTION: The 2023 archived team solution supports one input range, but exact original limits and modulus are unverified. Modulo 1000000007 is the repository teaching assumption, NOT a verified contest rule.
-If the archived original PDF is accessible and differs, report the differences instead of silently modifying the educational question.
 
 OPTIONAL: If I provide my Java code later, review it against the COMPLETE QUESTION above and give a minimal reproducible counterexample for each actual bug.
