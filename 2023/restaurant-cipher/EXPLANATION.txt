@@ -33,10 +33,3 @@ O(total input characters) time and O(1) auxiliary counting memory.
 4) Reading a line token by token
 5) Assuming the no-valid-letter behavior is official
 
-8. FURTHER PRACTICE
-Explain the key invariant, invent at least five boundary tests, and compare your code with sample.in/sample.out. Check empty/small inputs, ties, overflow, and input layout wherever applicable.
-
-9. ORIGINAL SOURCE STATUS
-2023 original contest PDF exists but its tie rule, bounds, and empty/no-A-G behavior remain unverified. This is the repository practice interpretation.
-
-See QUESTION.txt, TEST_CASES.txt and Main.java for the exercise and local checks. Passing local tests is not proof of official judge acceptance.
