@@ -1,6 +1,6 @@
 # IEEE2026 — IEEEXtreme Java Learning Hub
 
-**9 authentic IEEEXtreme problem titles** from 2023 (17.0), 2024 (18.0) and 2025 (19.0), with seven learning files plus inputs/outputs for each. Designed for students learning competitive programming in **Java 17**.
+**9 authentic IEEEXtreme problem titles** from 2023 (17.0), 2024 (18.0) and 2025 (19.0), with detailed plain-text learning documents, runnable Java 17 code, and sample input/output in each folder. Designed for students learning competitive programming in **Java 17**.
 
 **Live site (once GitHub Pages is enabled):** https://kayaniyasir.github.io/IEEE2026/
 
@@ -20,14 +20,14 @@
 
 Browse year indexes: [2023](2023/README.md) · [2024](2024/README.md) · [2025](2025/README.md).
 
-### Files per problem
+### Files per problem — plain-text learning guides
 1. **README.md** — learning order, topic, and authentic archived source link
-2. **QUESTION.md** — original educational paraphrase, constraints and sample
-3. **HINTS.md** — three progressive hints to try before reading the solution
-4. **EXPLANATION.md** — reasoning, algorithm and complexity
+2. **QUESTION.txt** — complete self-contained educational practice specification, input/output format, known constraints, sample and source caveats
+3. **HINTS.txt** — three progressive hints to try before reading the solution
+4. **EXPLANATION.txt** — expanded algorithm steps, worked examples, Java coding notes, complexity, mistakes, and source limitations
 5. **Main.java** — independent runnable Java 17 solution
-6. **TEST_CASES.md** — sample, expected output and edge-case guidance
-7. **AI_PROMPT.md** — hints-only and code review prompts, following live competition rules
+6. **TEST_CASES.txt** — sample, expected results, ways to run Java tests, and extra edge cases
+7. **AI_PROMPT.txt** — ready-to-copy full practice question, solution approach, Java 17 generation/review instructions, and validation checklist
 
 Each folder additionally includes `sample.in` and `sample.out`.
 
@@ -39,7 +39,7 @@ javac Main.java
 java Main < sample.in
 ```
 
-To test all nine examples, run `python tests/check_samples.py`. The [Java CI workflow](.github/workflows/java-checks.yml) runs these checks on pushes and pull requests.
+To test all nine examples, run `python tests/check_samples.py`. The [Java CI workflow](.github/workflows/java-checks.yml) runs these checks and validates all 45 plain-text learning files on pushes and pull requests.
 
 ## Verification and limitations
 
@@ -48,7 +48,7 @@ To test all nine examples, run `python tests/check_samples.py`. The [Java CI wor
 - **Compilation or local tests do not guarantee contest judge acceptance.** Archived third-party descriptions may be incomplete or erroneous.
 - Some exact 2023 contest rules were unavailable as extractable text in their original PDF archives; educational reconstructions are labeled as such. In particular, the 2023 Happy Numbers output uses an *illustrative modulo* pending confirmation from the original contest statement.
 - One 2025 community archive includes an inconsistent example for Raju's Matrix Runs; the folder replaces that example with an independently verified case.
-- All problem write-ups here are original educational paraphrases. Full problem copyrights remain with their respective owners.
+- All problem write-ups here are original educational paraphrases. The AI prompts repeat these **complete repository practice specifications**, not unverified verbatim official problem statements. Full problem copyrights remain with their respective owners.
 
 ## Website publication
 

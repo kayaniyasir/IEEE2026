@@ -17,4 +17,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile all Java solutions and verify sample outputs
-        run: python tests/check_samples.py
+        run: |
+          python tests/check_samples.py
+          python tests/check_materials.py
