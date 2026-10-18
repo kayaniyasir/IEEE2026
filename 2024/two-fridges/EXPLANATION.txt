@@ -1,0 +1,46 @@
+TWO FRIDGES — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Check original source (https://csacademy.com/ieeextreme-practice/task/two-fridges). This is not a verbatim reproduction of a copyrighted contest statement.
+
+Problem
+Each substance stays safe within an inclusive integer temperature interval [a,b]. Select two integer refrigerator temperatures such that every interval contains at least one chosen temperature. Among solutions, choose the lexicographically smallest ordered pair.
+
+Input
+Integer N, then N lines with a and b.
+
+WHY THIS ALGORITHM WORKS
+There are 201 integer temperatures and only 20,301 sorted pairs. Exhaustive checking is small, robust, and gives the optimal tie choice automatically.
+
+ALGORITHM
+1. Every substance i has an allowed inclusive temperature interval [a_i,b_i]. Choose x<=y in the allowed range [-100,100].
+
+2. Enumerate x from -100 to 100. For each x, enumerate y from x to 100, guaranteeing increasing lexicographic pair order.
+
+3. For each candidate pair, scan all intervals. The interval is covered when (a_i<=x<=b_i) OR (a_i<=y<=b_i).
+
+4. If a pair covers ALL intervals, print it immediately: it is the lexicographically smallest valid choice.
+
+5. After exhausting every candidate, output -1.
+
+WORKED SAMPLE
+Input intervals [10,12] and [20,24]. No single temperature covers both, so first choose the smallest permitted temperature 10 and second 20; output 10 20.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use only standard Java libraries, appropriate input parsing, and exact standard output. Use descriptive variables and read the whole input before making assumptions about end of line. Explain each data structure and loop's role. Study Main.java only after your own attempt.
+
+TIME AND SPACE
+O(201²*N) time and O(N) space; bounded loops make this feasible for N<=100.
+
+COMMON MISTAKES
+1. Using strict rather than inclusive interval comparisons
+2. Picking any valid pair instead of lexicographically first
+3. Allowing x>y or temperatures outside [-100,100]
+4. Accidentally requiring x and y to differ (equal temperatures are allowed here)
+
+SELF-CHECK
+Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
+
+FIDELITY NOTE
+Based on the cited public IEEEXtreme practice formulation, including bounded integer temperatures and lexical selection.
+Local Java sample results do not prove official judge acceptance.

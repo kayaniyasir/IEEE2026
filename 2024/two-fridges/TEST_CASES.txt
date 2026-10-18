@@ -1,0 +1,40 @@
+TWO FRIDGES — JAVA TEST PLAN
+
+Test cases — Two Fridges
+
+Use the included sample.in and sample.out files to reproduce the teaching case:
+
+
+javac Main.java
+java Main < sample.in
+
+
+Input
+
+2
+10 12
+20 24
+
+
+Expected output
+
+10 20
+
+
+Extra tests: zero/minimum values if allowed, single-element cases, duplicate or equal values, impossible cases and performance at contest limits.
+
+Status: Compiled on Java 17 and passed development checks. Original judge acceptance is not claimed.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output exactly with sample.out (a final newline may differ).
+
+ADDITIONAL TEST IDEAS
+1. Using strict rather than inclusive interval comparisons
+2. Picking any valid pair instead of lexicographically first
+3. Allowing x>y or temperatures outside [-100,100]
+4. Accidentally requiring x and y to differ (equal temperatures are allowed here)
+
+VERIFY WITH A SMALL INDEPENDENT CALCULATION before asserting a test passes.
+Source qualification: Based on the cited public IEEEXtreme practice formulation, including bounded integer temperatures and lexical selection.

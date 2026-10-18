@@ -1,0 +1,42 @@
+KING'S ORDER — JAVA TEST PLAN
+
+Test cases — King's Order
+
+Use the included sample.in and sample.out files to reproduce the teaching case:
+
+
+javac Main.java
+java Main < sample.in
+
+
+Input
+
+4 3
+2 1 2 1
+1 3
+2 3
+4 3
+
+
+Expected output
+
+2 4 1 3
+
+
+Extra tests: zero/minimum values if allowed, single-element cases, duplicate or equal values, impossible cases and performance at contest limits.
+
+Status: Compiled on Java 17 and passed development checks. Original judge acceptance is not claimed.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output exactly with sample.out (a final newline may differ).
+
+ADDITIONAL TEST IDEAS
+1. Reversing edge direction or ignoring prerequisites
+2. Selecting the next task by ID only, ignoring group ordering
+3. Inserting nodes before indegree reaches zero
+4. Forgetting tie-breaking by task ID or cycle detection
+
+VERIFY WITH A SMALL INDEPENDENT CALCULATION before asserting a test passes.
+Source qualification: This is a reconstruction from a 2024 contestant submission; exact official ties and size limits are not independently verified.

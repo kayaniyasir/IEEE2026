@@ -1,0 +1,79 @@
+COPY-READY SOLUTION PROMPT FOR TWO FRIDGES
+Use this outside active competitions and comply with contest rules.
+
+ROLE: You are an expert Java 17 competitive programming tutor. The COMPLETE educational problem appears below. Do not ask me to paste any statement, and do not assume missing official rules. Solve the repository practice specification exactly.
+
+========== COMPLETE QUESTION ==========
+Two Fridges — educational paraphrase of a real 2024 IEEEXtreme problem
+
+Check original source (https://csacademy.com/ieeextreme-practice/task/two-fridges). This is not a verbatim reproduction of a copyrighted contest statement.
+
+Problem
+Each substance stays safe within an inclusive integer temperature interval [a,b]. Select two integer refrigerator temperatures such that every interval contains at least one chosen temperature. Among solutions, choose the lexicographically smallest ordered pair.
+
+Input
+Integer N, then N lines with a and b.
+
+Output
+T1 T2 with T1 <= T2, or -1 when no valid pair exists.
+
+Constraints and fidelity
+0<=N<=100; -100<=a<=b<=100; choose both temperatures within [-100,100].
+
+Sample input
+
+2
+10 12
+20 24
+
+
+Sample output
+
+10 20
+
+
+Sample has been independently checked, and is not labeled as an original official sample.
+
+Input domain and tie-breaking are supported by a public IEEEXtreme practice statement. The example is independently checked.
+========== END OF QUESTION ==========
+
+HOW TO SOLVE THE QUESTION
+1. Every substance i has an allowed inclusive temperature interval [a_i,b_i]. Choose x<=y in the allowed range [-100,100].
+
+2. Enumerate x from -100 to 100. For each x, enumerate y from x to 100, guaranteeing increasing lexicographic pair order.
+
+3. For each candidate pair, scan all intervals. The interval is covered when (a_i<=x<=b_i) OR (a_i<=y<=b_i).
+
+4. If a pair covers ALL intervals, print it immediately: it is the lexicographically smallest valid choice.
+
+5. After exhausting every candidate, output -1.
+
+WHY THE ALGORITHM IS CORRECT
+There are 201 integer temperatures and only 20,301 sorted pairs. Exhaustive checking is small, robust, and gives the optimal tie choice automatically.
+
+SAMPLE WALKTHROUGH
+Input intervals [10,12] and [20,24]. No single temperature covers both, so first choose the smallest permitted temperature 10 and second 20; output 10 20.
+
+EXPECTED WORST-CASE COMPLEXITY
+O(201²*N) time and O(N) space; bounded loops make this feasible for N<=100.
+
+INSTRUCTIONS — FOLLOW THIS ORDER
+1. Restate the problem, input/output format and known numerical limits in simple language. State what comes from this educational version versus unverified official facts.
+2. Identify prerequisite concepts: Intervals, inclusive endpoints, finite candidate enumeration. Briefly explain them with beginner-friendly language.
+3. Explain the algorithm step by step above, including the invariant, the proof of correctness and why a simpler brute force would or would not work.
+4. Show pseudocode and trace the included sample, confirming the exact output.
+5. Provide one COMPLETE compilable Java 17 solution with public class Main in Main.java. Standard library only; efficient input when needed; no debug output, no extra labels, no hardcoded sample output.
+6. Explain the implementation: chosen data types, arrays, loops, methods, comparator or boundary rules, and possible overflow.
+7. Provide precise worst-case time and auxiliary space complexity.
+8. Propose at least five NEW valid edge cases with independently determined outputs and stress conditions. Specifically address:
+   1) Using strict rather than inclusive interval comparisons
+   2) Picking any valid pair instead of lexicographically first
+   3) Allowing x>y or temperatures outside [-100,100]
+   4) Accidentally requiring x and y to differ (equal temperatures are allowed here)
+9. Audit the code for syntax, timeouts, integer overflow, off-by-one indexing, parsing, ties and impossible inputs. Report honestly whether you actually ran the code; do not claim official judge acceptance.
+10. End with a clean copy-ready Main.java code block after explaining the solution.
+
+ARCHIVE CAUTION: Based on the cited public IEEEXtreme practice formulation, including bounded integer temperatures and lexical selection.
+If any archived original rule differs, point it out separately and keep the practice problem unchanged unless asked.
+
+OPTIONAL CODE REVIEW: After I paste my own Java code, show real bugs with minimal counterexample inputs, and justify each correction against the complete question above.

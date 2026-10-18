@@ -1,0 +1,38 @@
+STICK — JAVA TEST PLAN
+
+Test cases — Stick
+
+Use the included sample.in and sample.out files to reproduce the teaching case:
+
+
+javac Main.java
+java Main < sample.in
+
+
+Input
+
+3 1 2
+
+
+Expected output
+
+30
+
+
+Extra tests: zero/minimum values if allowed, single-element cases, duplicate or equal values, impossible cases and performance at contest limits.
+
+Status: Compiled on Java 17 and passed development checks. Original judge acceptance is not claimed.
+
+REPRODUCIBLE SAMPLE CHECK
+1. javac Main.java
+2. java Main < sample.in
+3. Compare output exactly with sample.out (a final newline may differ).
+
+ADDITIONAL TEST IDEAS
+1. Mistaking side length as L rather than 2L
+2. Subtracting a negative overlap when K is at least 2L
+3. Subtracting N overlaps rather than N-1
+4. Overflow in int/long products
+
+VERIFY WITH A SMALL INDEPENDENT CALCULATION before asserting a test passes.
+Source qualification: Title/formula are supported by practice and contestant sources; exact official numerical limits are not confirmed.

@@ -1,0 +1,46 @@
+STICK — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Check original source (https://csacademy.com/ieeextreme-practice/task/stick). This is not a verbatim reproduction of a copyrighted contest statement.
+
+Problem
+N identical squares have side 2L. Each successive square is translated K units right and K units up. Compute the union area of all squares.
+
+Input
+Three integers N K L.
+
+WHY THIS ALGORITHM WORKS
+The translation pattern makes each successive square add the same net uncovered portion. Counting one full square plus N-1 additions avoids enumerating geometric coordinates.
+
+ALGORITHM
+1. Each of the N equal squares has side length 2L, so one area is 4L².
+
+2. The displacement between adjacent squares is K in both x and y. Their overlap has side max(0,2L-K), hence area overlapSide².
+
+3. Each square after the first adds oneSquareArea-overlapArea of new area because its intersections with still older squares are contained within the preceding overlap.
+
+4. Total area = N*(2L)² - (N-1)*(max(0,2L-K))².
+
+5. Use BigInteger operations in Java 17 if arbitrary large values are possible, and print only the final integer.
+
+WORKED SAMPLE
+Input 3 1 2 gives side 4, each square area 16, overlap side 3 and overlap area 9. Total union = 3*16-2*9=30.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use only standard Java libraries, appropriate input parsing, and exact standard output. Use descriptive variables and read the whole input before making assumptions about end of line. Explain each data structure and loop's role. Study Main.java only after your own attempt.
+
+TIME AND SPACE
+O(1) arithmetic operations in terms of N; BigInteger cost depends on operand lengths.
+
+COMMON MISTAKES
+1. Mistaking side length as L rather than 2L
+2. Subtracting a negative overlap when K is at least 2L
+3. Subtracting N overlaps rather than N-1
+4. Overflow in int/long products
+
+SELF-CHECK
+Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
+
+FIDELITY NOTE
+Title/formula are supported by practice and contestant sources; exact official numerical limits are not confirmed.
+Local Java sample results do not prove official judge acceptance.

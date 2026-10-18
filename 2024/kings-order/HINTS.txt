@@ -1,0 +1,43 @@
+KING'S ORDER — PROGRESSIVE HINTS
+
+Read only one hint at a time.
+
+CONCEPT HINT
+Tasks with indegree zero are the only legal next choices. Kahn's algorithm enforces prerequisites, and a heap selects the smallest group and ID without scanning all candidates each time.
+
+ALGORITHM HINT
+Represent every pair a b as directed edge a→b: a must be finished before b. Store successors in an adjacency list.
+Compute the indegree of every task (number of unmet prerequisites).
+
+IMPLEMENTATION HINT
+Put every indegree-zero task in a PriorityQueue ordered by (group ID, task number) in ascending order.
+Repeatedly pop the best available task, append it to the answer, decrement indegrees of its successors, and add any successor whose indegree becomes zero.
+If exactly N tasks are printed, output the order. Otherwise a cycle exists, so print -1.
+
+CONCEPT QUESTIONS
+1. What invariant does your algorithm maintain?
+2. Why does it satisfy the requirement rather than only the sample?
+3. Which edge case would demonstrate a common error?
+
+Original archive hint material (for reference):
+Progressive hints — King's Order
+
+<details><summary>Hint 1 · Understand</summary>
+
+What data must be read, and what makes the answer valid? Focus on Graph algorithms and priority queues.
+
+</details>
+
+<details><summary>Hint 2 · Reason</summary>
+
+An edge a→b means b has an unmet prerequisite. Keep the count of unmet prerequisites. A priority queue chooses the smallest eligible (group,id).
+
+</details>
+
+<details><summary>Hint 3 · Implement</summary>
+
+Write pseudocode, prove that the selected strategy works, then test boundary cases. Compare your solution only after attempting it.
+
+</details>
+
+Concept question: How does your approach improve on a naive exhaustive strategy? Why is it correct?

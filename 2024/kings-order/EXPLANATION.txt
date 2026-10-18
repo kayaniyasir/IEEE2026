@@ -1,0 +1,46 @@
+KING'S ORDER — STEP-BY-STEP EXPLANATION (JAVA 17)
+
+THE QUESTION
+Check original source (https://github.com/Pavith19/IEEEXtreme18.0-solutions/tree/main/King%27s%20Order). This is not a verbatim reproduction of a copyrighted contest statement.
+
+Problem
+Arrange N tasks satisfying prerequisite pairs (a,b), where task a must occur before task b. Of the currently available tasks, choose the one with the smallest given group number, breaking ties by task number. Output -1 if the tasks contain a cycle.
+
+Input
+N M, then N group identifiers, then M pairs a b.
+
+WHY THIS ALGORITHM WORKS
+Tasks with indegree zero are the only legal next choices. Kahn's algorithm enforces prerequisites, and a heap selects the smallest group and ID without scanning all candidates each time.
+
+ALGORITHM
+1. Represent every pair a b as directed edge a→b: a must be finished before b. Store successors in an adjacency list.
+
+2. Compute the indegree of every task (number of unmet prerequisites).
+
+3. Put every indegree-zero task in a PriorityQueue ordered by (group ID, task number) in ascending order.
+
+4. Repeatedly pop the best available task, append it to the answer, decrement indegrees of its successors, and add any successor whose indegree becomes zero.
+
+5. If exactly N tasks are printed, output the order. Otherwise a cycle exists, so print -1.
+
+WORKED SAMPLE
+In the given 4-task sample, ready tasks 1(group2), 2(group1), 4(group1). Choose 2, then 4, then 1; task 3 becomes available only when all three finish. Output: 2 4 1 3.
+
+JAVA IMPLEMENTATION NOTES
+Write a standalone program in Main.java with public class Main. Use only standard Java libraries, appropriate input parsing, and exact standard output. Use descriptive variables and read the whole input before making assumptions about end of line. Explain each data structure and loop's role. Study Main.java only after your own attempt.
+
+TIME AND SPACE
+O((N+M)log N) time, O(N+M) memory.
+
+COMMON MISTAKES
+1. Reversing edge direction or ignoring prerequisites
+2. Selecting the next task by ID only, ignoring group ordering
+3. Inserting nodes before indegree reaches zero
+4. Forgetting tie-breaking by task ID or cycle detection
+
+SELF-CHECK
+Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
+
+FIDELITY NOTE
+This is a reconstruction from a 2024 contestant submission; exact official ties and size limits are not independently verified.
+Local Java sample results do not prove official judge acceptance.
