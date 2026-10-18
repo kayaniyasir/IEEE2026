@@ -75,7 +75,5 @@ INSTRUCTIONS — FOLLOW THIS ORDER
 9. Audit the code for syntax, timeouts, integer overflow, off-by-one indexing, parsing, ties and impossible inputs. Report honestly whether you actually ran the code; do not claim official judge acceptance.
 10. End with a clean copy-ready Main.java code block after explaining the solution.
 
-ARCHIVE CAUTION: This is a reconstruction from a 2024 contestant submission; exact official ties and size limits are not independently verified.
-If any archived original rule differs, point it out separately and keep the practice problem unchanged unless asked.
 
 OPTIONAL CODE REVIEW: After I paste my own Java code, show real bugs with minimal counterexample inputs, and justify each correction against the complete question above.
