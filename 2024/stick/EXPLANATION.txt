@@ -38,9 +38,3 @@ COMMON MISTAKES
 3. Subtracting N overlaps rather than N-1
 4. Overflow in int/long products
 
-SELF-CHECK
-Before looking at code, explain which operation makes progress toward the answer, what invariant remains true after each step, and what proves optimality or correctness. Run sample.in and additional valid boundary cases.
-
-FIDELITY NOTE
-Title/formula are supported by practice and contestant sources; exact official numerical limits are not confirmed.
-Local Java sample results do not prove official judge acceptance.
